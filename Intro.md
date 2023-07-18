@@ -31,6 +31,7 @@ Types of Unsupervised learning,
 
 - Dimensionality reduction, Compress data using fewer numbers.
 
+#
 ## Linear Regression :- 
 
 It is a regression algorithm in which the function turns out be a line function and the output is calculated on the line.
@@ -121,3 +122,24 @@ So decide a value of alpha keeping these three points in mind.
 
 So finally, this ensures that the algorithm when given a starting point (i.e. with coordinates of w and b) will automatically find the values of w and b where the cost is the minimum and since, as mentioned earlier, we are using Squared error cost function our minima will only be at a single point.
 Thus making our model ready to predict outputs for any input, seems like its ready to face the world ;)
+
+#
+## Multiple Linear Regression :-
+
+In Linear Regression, we studied about model which can predict output bsaed on only single parameter i.e size of the flat. Multiple Linear Regression focusses on more details than just only a single parameter to predict more accurate results. For example, let's take into consideration the number of bedrooms, the number of floors and how old the property is also with the size of the property. So in this case, we'll be having 4 features to work on instead of one.
+
+![Alt text](<md_images/Screenshot from 2023-07-07 17-49-22.png>)
+
+So, now the definition of the function changes a little as now we have vector form for w i.e. parameters and x i.e. features.
+
+![Alt text](<md_images/Screenshot from 2023-07-12 17-03-45.png>)
+
+Since it is of the form of linear regression itself, but with multiple variables, Thus it is called multiple linear regression.
+
+### Vectorization
+
+Now that we have vecotrs to deal with in our code and since our data, parameters and features can be extremely large, to handle it, we have a convenient way using NumPy, a famous python library to deal with vectorization.
+
+![Alt text](<md_images/Screenshot from 2023-07-12 17-23-02.png>)
+
+NumPy is able to use parallel hardware in a normal computer and thus achieves faster calculations.

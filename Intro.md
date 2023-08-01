@@ -78,7 +78,7 @@ So, we move on to plotting a 3D plot using cost function values, w and b altoget
 
 ### Gradient Descent...
 
-By looking at graph we users can easily tell where a minima is and can define its coordinates. But we won't be searching for the minima in the graphs and providing it to the algorithm, instead, we will find a so that the algorithm itself finds the minima and assign the values to w and b, so that our model will be fully prepared for making predictions.
+By looking at graph we users can easily tell where a minima is and can define its coordinates. But we won't be searching for the minima in the graphs and providing it to the algorithm, instead, we will find a way so that the algorithm itself finds the minima and assign the values to w and b, so that our model will be fully prepared for making predictions.
 
 To do so, we will use a concept called Gradient Descent. Gradient Descent helps our algorithm by moving some steps from a starting point on the surface plot to the local minima. It does so by first checking 360 degrees for the next step which will lead to values of w and b where the cost reduces and it will take a step in that direction and repeat the same process untill it finds the minima.
 
@@ -143,3 +143,39 @@ Now that we have vecotrs to deal with in our code and since our data, parameters
 ![Alt text](<md_images/Screenshot from 2023-07-12 17-23-02.png>)
 
 NumPy is able to use parallel hardware in a normal computer and thus achieves faster calculations.
+
+### Feature Scaling 
+
+For a gradient descent aproach it is necessary to have more normalised plots so that the changing of the values to find the local minima occurs efficiently and does not converge. To do that we use the technique of Feature Scaling.
+
+The following image shows the relation between the feature and the parameter sizes.
+
+![Alt text](<md_images/Screenshot from 2023-08-01 13-02-52.png>)
+
+You might see a contour plot where the horizontal axis has a much narrower range, say between zero and one, whereas the vertical axis takes on much larger values, say between 10 and 100. So the contours form ovals or ellipses and they're short on one side and longer on the other. And this is because a very small change to w1 can have a very large impact on the estimated price and that's a very large impact on the cost J. Because w1 tends to be multiplied by a very large number, the size and square feet. In contrast, it takes a much larger change in w2 in order to change the predictions much. And thus small changes to w2, don't change the cost function nearly as much. So where does this leave us? This is what might end up happening if you were to run gradient descent, if you were to use your training data as is. Because the contours are so tall and skinny gradient descent may end up bouncing back and forth for a long time before it can finally find its way to the global minimum. 
+
+So, in situations like this, a useful thing to do is to scale the features. This means performing some transformation of your training data so that x1 say might now range from 0 to 1 and x2 might also range from 0 to 1. So the data points now look more like this and you might notice that the scale of the plot on the bottom is now quite different than the one on top.
+
+![Alt text](<md_images/Screenshot from 2023-08-01 13-10-16.png>)
+
+Now, after the re scale, x1 and x2 are both now taking comparable ranges of values to each other. And if you run gradient descent on a cost function to find on this, re scaled x1 and x2 using this transformed data, then the contours will look more like this more like circles and less tall and skinny. And gradient descent can find a much more direct path to the global minimum.
+
+Now, How to perform feature scaling?
+
+1. Feature scaling by dividing
+
+Well it means, if x_1 ranges from 3-2,000, one way to get a scale version of x_1 is to take each original x1_ value and divide by 2,000, the maximum of the range. The scale x_1 will range from 0.15 up to one. Similarly, since x_2 ranges from 0-5, you can calculate a scale version of x_2 by taking each original x_2 and dividing by five, which is again the maximum. So the scale is x_2 will now range from 0-1. If you plot the scale to x_1 and x_2 on a graph, it might look like this. 
+
+![Alt text](<md_images/Screenshot from 2023-08-01 13-14-25.png>)
+
+2. Mean Normalization
+
+What this looks like is, you start with the original features and then you re-scale them so that both of them are centered around zero. To calculate the mean normalization of x_1, first find the average, also called the mean of x_1 on your training set, and let's call this mean Mu_1. For example, you may find that the average of feature 1, Mu_1 is 600 square feet. Let's take each x_1, subtract the mean Mu_1, and then let's divide by the difference 2,000 minus 300, where 2,000 is the maximum and 300 the minimum, and if you do this, you get the normalized x_1 to range from negative 0.18-0.82. Similarly, to mean normalized x_2, you can calculate the average of feature 2. For instance, Mu_2 may be 2.3. Then you can take each x_2, subtract Mu_2 and divide by 5 minus 0. Again, the max 5 minus the mean, which is 0. The mean normalized x_2 now ranges from negative 0.46-0 54. If you plot the training data using the mean normalized x_1 and x_2, it might look like this. 
+
+![Alt text](<md_images/Screenshot from 2023-08-01 13-21-39.png>)
+
+3. Z-Score Normalization
+
+To implement a Z-score normalization, you first calculate the mean Mu, as well as the standard deviation, which is often denoted by the lowercase Greek alphabet Sigma of each feature. For instance, maybe feature 1 has a standard deviation of 450 and mean 600, then to Z-score normalize x_1, take each x_1, subtract Mu_1, and then divide by the standard deviation, which I'm going to denote as Sigma 1. What you may find is that the Z-score normalized x_1 now ranges from negative 0.67-3.1. Similarly, if you calculate the second features standard deviation to be 1.4 and mean to be 2.3, then you can compute x_2 minus Mu_2 divided by Sigma_2, and in this case, the Z-score normalized by x_2 might now range from negative 1.6-1.9. If you plot the training data on the normalized x_1 and x_2 on a graph, it might look like this. 
+
+![Alt text](<md_images/Screenshot from 2023-08-01 13-29-46.png>)

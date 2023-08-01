@@ -179,3 +179,7 @@ What this looks like is, you start with the original features and then you re-sc
 To implement a Z-score normalization, you first calculate the mean Mu, as well as the standard deviation, which is often denoted by the lowercase Greek alphabet Sigma of each feature. For instance, maybe feature 1 has a standard deviation of 450 and mean 600, then to Z-score normalize x_1, take each x_1, subtract Mu_1, and then divide by the standard deviation, which I'm going to denote as Sigma 1. What you may find is that the Z-score normalized x_1 now ranges from negative 0.67-3.1. Similarly, if you calculate the second features standard deviation to be 1.4 and mean to be 2.3, then you can compute x_2 minus Mu_2 divided by Sigma_2, and in this case, the Z-score normalized by x_2 might now range from negative 1.6-1.9. If you plot the training data on the normalized x_1 and x_2 on a graph, it might look like this. 
 
 ![Alt text](<md_images/Screenshot from 2023-08-01 13-29-46.png>)
+
+### Feature Engineering 
+
+Using intuition and knowledge to design new features, by transforming or combining original features is nothing but feature engineering.

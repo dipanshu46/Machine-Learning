@@ -52,7 +52,7 @@ f(x) = wx + b
 
 ![Alt text](<md_images/Screenshot from 2023-06-27 16-14-41.png>)
     
-Linear regression works with one variable only.
+Linear regression here has one variable.
 
 To find the line which gives us the best values for w and b which in turn helps generating the closest output estimate towards target output, we need to define a cost function.
 To compute this equation we find the average of squared error for all the given training examples.
@@ -74,7 +74,7 @@ To find the minimum value of cost function, we need to plot a graph with cost fu
 
 To do so, we learnt about contour plot which was able to plot the minimum of the cost function but with cost function and w or b only. Since it is a 2D graph.
 
-So, we move on to plotting a 3D plot using cost function values, w and b altogether which is known as surface plot. Using this we were easily able to spot the local minima's. Note: Since our cost function is squared erros cost function, it will result in shape of bowl when plotted and thus there will only be one minima which will be the global minima.
+So, we move on to plotting a 3D plot using cost function values, w and b altogether which is known as surface plot. Using this we were easily able to spot the local minima's. Note: Since our cost function is squared error cost function, it will result in shape of bowl when plotted and thus there will only be one minima which will be the global minima.
 
 ### Gradient Descent...
 
